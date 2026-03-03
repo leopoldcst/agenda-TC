@@ -148,6 +148,31 @@ h1 {
   font-weight: 600;
 }
 
+.fc .event-content {
+  display: grid;
+  gap: 2px;
+  line-height: 1.15;
+  color: inherit;
+}
+
+.fc .event-course {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fc .event-intitule {
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.fc .event-prof,
+.fc .event-room {
+  font-size: 0.7rem;
+  opacity: 0.92;
+}
+
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -218,5 +243,19 @@ h1 {
   .fc .fc-timegrid-axis-cushion,
   .fc .fc-timegrid-slot-label-cushion {
     font-size: 0.75rem;
+  }
+
+  .fc .event-course {
+    font-size: 0.62rem;
+    letter-spacing: 0.03em;
+  }
+
+  .fc .event-intitule {
+    font-size: 0.68rem;
+  }
+
+  .fc .event-prof,
+  .fc .event-room {
+    font-size: 0.6rem;
   }
 }
