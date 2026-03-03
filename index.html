@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mon Emploi du Temps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+    <header class="top-bar">
+      <div class="title-block">
+        <p class="eyebrow">Agenda Telecom</p>
+        <h1>Emploi du Temps</h1>
+        <p class="subtitle">Semaine en cours.</p>
+      </div>
+    </header>
+
+    <div id="calendar" class="calendar-card"></div>
+  </div>
+
+  <!-- FullCalendar -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+  <!-- ical.js -->
+  <script src="https://cdn.jsdelivr.net/npm/ical.js@1.4.0/build/ical.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>

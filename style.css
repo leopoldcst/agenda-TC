@@ -1,0 +1,222 @@
+:root {
+  color-scheme: light;
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-display: "Fraunces", serif;
+  --ink: #1b1f24;
+  --muted: #5b6470;
+  --accent: #ef7a39;
+  --accent-strong: #e15f1f;
+  --surface: #ffffff;
+  --surface-2: #f6f3ee;
+  --border: rgba(27, 31, 36, 0.12);
+  --shadow: 0 20px 50px rgba(23, 30, 41, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background:
+    radial-gradient(1400px 600px at 10% 0%, rgba(239, 122, 57, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(18, 102, 91, 0.2), transparent 65%),
+    linear-gradient(135deg, #f7f2ea 0%, #edf2f0 55%, #f3efe7 100%);
+  padding: 32px 16px 48px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(27, 31, 36, 0.08) 1px, transparent 0);
+  background-size: 26px 26px;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.top-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  animation: slideIn 0.6s ease both;
+}
+
+.title-block {
+  max-width: 520px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 2.6vw, 2.6rem);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.calendar-card {
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.8s ease both;
+  animation-delay: 0.1s;
+}
+
+#calendar {
+  --fc-border-color: var(--border);
+  --fc-event-bg-color: var(--accent-strong);
+  --fc-event-border-color: var(--accent-strong);
+  --fc-event-text-color: #ffffff;
+  --fc-today-bg-color: rgba(239, 122, 57, 0.18);
+  --fc-neutral-bg-color: var(--surface-2);
+  font-family: var(--font-sans);
+}
+
+.fc .fc-toolbar-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+}
+
+.fc .fc-button {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 600;
+  padding: 6px 14px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.fc .fc-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(27, 31, 36, 0.12);
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(239, 122, 57, 0.25);
+}
+
+.fc .fc-daygrid-day-number,
+.fc .fc-timegrid-slot-label {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.fc .fc-event {
+  border-radius: 10px;
+  padding: 2px 4px;
+  box-shadow: 0 8px 16px rgba(225, 95, 31, 0.2);
+}
+
+.fc .fc-event-title {
+  font-weight: 600;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .top-bar {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 20px 12px 32px;
+  }
+
+  .calendar-card {
+    padding: 6px;
+    border-radius: 18px;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .fc .fc-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: 1.2rem;
+  }
+
+  .fc .fc-button {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  .fc .fc-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .fc .fc-timegrid-axis-cushion,
+  .fc .fc-timegrid-slot-label-cushion {
+    font-size: 0.75rem;
+  }
+}
